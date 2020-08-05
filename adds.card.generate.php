@@ -21,7 +21,7 @@
                             //    };  
                             ?> 
                <!--      </ul><br> -->
-                    </div>
+                    </div><br>
 
                     <p class="card-text"><?php echo substr($r['tekst'],0,100); ?><a href="add.view.php?oglas_id=<?php echo $r['oglas_id'] ?>"><?php if(strlen($r['tekst'])>99) echo "......"; ?></a></p>
                     <p class="card-text">Email: <?php echo $r['email']; ?></p>
