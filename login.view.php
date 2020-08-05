@@ -11,6 +11,7 @@
                 <input type="password" name="password" placeholder="Sifra" class="form-control"><br>
                 <button type="submit" class="btn btn-primary">Uloguj se</button><br><br>
             </form>
+            <p>Ako nemate nalog registrujte se <a href="register.view.php">ovde</a></p>
         </div>
     </div>
 </div>
