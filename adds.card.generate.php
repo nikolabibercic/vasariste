@@ -1,0 +1,47 @@
+<div class="col-3">
+
+</div>
+<div class="col-6"><br>
+            <div class="card">        
+                <div class="card-body">
+                    <h4 class="card-title"> <a href="add.view.php?oglas_id=<?php echo $r['oglas_id'] ?>"><?php echo $r['naslov']; ?></h4></a>                    
+                    <div class="text-center">
+            <!--        <ul class="list-group list-group-horizontal-xl">  -->
+                            <?php 
+                                $result = addsImages($r['oglas_id']);
+                             //   foreach($result as $x){
+                             //       $slika = $x['slika_path'];
+                                if(count($result)>0){
+                                    $slika = $result[0]['slika_path'];
+                                    //    echo '<li class="list-group-item"> ';
+                                    echo '<img src='.' " ' . $slika . ' " ' . ' class = "img-thumbnail" alt="" width="200px" height="200px">';
+                                    //    echo '</li>';
+                                }
+
+                            //    };  
+                            ?> 
+               <!--      </ul><br> -->
+                    </div>
+
+                    <p class="card-text"><?php echo substr($r['tekst'],0,100); ?><a href="add.view.php?oglas_id=<?php echo $r['oglas_id'] ?>"><?php if(strlen($r['tekst'])>99) echo "......"; ?></a></p>
+                    <p class="card-text">Email: <?php echo $r['email']; ?></p>
+                    <?php
+                        if(strlen($r['telefon'])>1){
+                            echo '<p class="card-text">Telefon: '.$r['telefon'].'</p>';
+                        };
+                    ?>
+                    <p class="card-text">Mesto: <?php echo $r['drzava'].', '.$r['grad']; ?></p>
+                    <p class="card-text">Datum objave:<br> <?php echo $r['datum_objave']; ?></p>
+                    <a href="#" class="btn btn-secondary btn-sm float-left"><?php echo $r['cena'].' '.$r['valuta']; ?></a>
+                    <a href="#" class="btn btn-primary btn-sm float-right"><?php echo $r['kategorija']; ?></a>
+                    <?php 
+                        if(isset($_SESSION['korisnik_id']) and $r['korisnik_id'] == $_SESSION['korisnik_id'] ):
+                    ?>
+                    <a href="delete.add.php?oglas_id=<?php echo $r['oglas_id'] ?>" class="btn btn-danger btn-sm float-right">Obriši oglas</a>
+                    <?php endif; ?>                   
+                </div>
+            </div>
+</div>
+<div class="col-3">
+
+</div>
