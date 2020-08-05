@@ -1,0 +1,5 @@
+Napraviti link i stranicu ka kategorijama kada se klikne kategorija u oglasu
+
+Na admin straicu napraviti update tipa oglasa (videti sta jos treba)
+
+napraviti insert into svih kategorija oglasa
