@@ -77,7 +77,7 @@ function addsList($search,$kategorija,$cenaOd,$cenaDo,$datumOd,$datumDo){
         and  ( o.cena <= $cenaDo or $cenaDo = '')
         and ( o.datum_objave BETWEEN '$datumOd' and DATE_ADD('$datumDo', INTERVAL 1 DAY) )
     
-        order by o.tip_oglasa_id, o.datum_objave desc
+        order by o.tip_oglasa_id desc, o.datum_objave desc
     ";
 
     $query = mysqli_query(db(),$sql);

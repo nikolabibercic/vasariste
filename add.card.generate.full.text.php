@@ -5,7 +5,20 @@
 <div class="col-8"><br>
             <div class="card">        
                 <div class="card-body">
-                    <h4 class="card-title"> <a href="add.view.php?oglas_id=<?php echo $r['oglas_id'] ?>"><?php echo $r['naslov']; ?></h4></a>                    
+                <h4 class="card-title">
+                        <a href="add.view.php?oglas_id=<?php echo $r['oglas_id'] ?>">
+                            <?php echo $r['naslov']; ?>
+                        </a>
+                        <a href="">
+                            <?php
+                                 if($r['tip_oglasa']=='Standardni oglas'){
+                                     echo '<img src="whiteStar.png" alt="" width="30px" height="30px" class="float-right">';
+                                 }elseif($r['tip_oglasa']=='Istaknuti oglas'){
+                                     echo '<img src="star.png" alt="" width="30px" height="30px" class="float-right">';
+                                 };               
+                            ?>
+                        </a>
+                    </h4>                    
                     
                     <?php 
                     $result = addsImages($r['oglas_id']);
