@@ -4,7 +4,8 @@
 <div class="col-6"><br>
             <div class="card">        
                 <div class="card-body">
-                    <h4 class="card-title">
+                <p class="">ID oglasa: <?php echo $r['oglas_id']; ?></p>
+                <h4 class="card-title">
                         <a href="add.view.php?oglas_id=<?php echo $r['oglas_id'] ?>">
                             <?php echo $r['naslov']; ?>
                         </a>
@@ -14,10 +15,12 @@
                                      echo '<img src="whiteStar.png" alt="" width="30px" height="30px" class="float-right">';
                                  }elseif($r['tip_oglasa']=='Istaknuti oglas'){
                                      echo '<img src="star.png" alt="" width="30px" height="30px" class="float-right">';
-                                 };               
+                                 }elseif($r['tip_oglasa']=='Premium oglas'){
+                                    echo '<img src="crown.png" alt="" width="40px" height="40px" class="float-right">';
+                                };               
                             ?>
                         </a>
-                    </h4>                    
+                    </h4>                   
                     <div class="text-center">
             <!--        <ul class="list-group list-group-horizontal-xl">  -->
                             <?php 
@@ -36,7 +39,7 @@
                <!--      </ul><br> -->
                     </div><br>
 
-                    <p class="card-text"><?php echo substr($r['tekst'],0,100); ?><a href="add.view.php?oglas_id=<?php echo $r['oglas_id'] ?>"><?php if(strlen($r['tekst'])>99) echo "......"; ?></a></p>
+                    <p class="card-text"><b><?php echo substr($r['tekst'],0,100); ?></b><a href="add.view.php?oglas_id=<?php echo $r['oglas_id'] ?>"><?php if(strlen($r['tekst'])>99) echo "......"; ?></a></p>
                     <p class="card-text">Email: <?php echo $r['email']; ?></p>
                     <?php
                         if(strlen($r['telefon'])>1){
@@ -48,6 +51,7 @@
                     <a href="#" class="btn btn-secondary btn-sm float-left"><?php echo $r['cena'].' '.$r['valuta']; ?></a>
                     <a href="#" class="btn btn-primary btn-sm float-right"><?php echo $r['kategorija']; ?></a>
                     <?php 
+                    /* Ako je oglas od korisnika onda se pojavljuje dugme brisi ako nije onda se ne pojavljuje */
                         if(isset($_SESSION['korisnik_id']) and $r['korisnik_id'] == $_SESSION['korisnik_id'] ):
                     ?>
                     <a href="delete.add.php?oglas_id=<?php echo $r['oglas_id'] ?>" class="btn btn-danger btn-sm float-right">Obriši oglas</a>

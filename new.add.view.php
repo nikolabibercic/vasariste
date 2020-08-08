@@ -9,9 +9,9 @@
         <div class="col-6 offset-3">
             <form action="new.add.php" method="post" enctype="multipart/form-data"><br>
                 <h3>Unesi podatke za novi oglas:</h3><br>
-                <input type="text" name="naslov" placeholder="Naslov oglasa" class="form-control"><br>
-                <textarea type="textarea" rows="8" cols="10" name="tekst" placeholder="Tekst oglasa" class="form-control"></textarea><br>
-                <input type="text" name="cena" placeholder="Cena" class="form-control"><br>
+                <input type="text" name="naslov" placeholder="Naslov oglasa" class="form-control" required><br>
+                <textarea type="textarea" rows="8" cols="10" name="tekst" placeholder="Tekst oglasa" class="form-control" required></textarea><br>
+                <input type="text" name="cena" placeholder="Cena" class="form-control" required><br>
                 <input type="text" name="telefon" placeholder="Telefon" class="form-control"><br>
                 Valuta:<br>
                 <select name="valuta" id="">

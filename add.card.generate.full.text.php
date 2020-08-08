@@ -3,7 +3,8 @@
 </div>
 <!-- Prikaz kartice pojedinacnog oglasa koja ima vise detalja i prikazuje full tekst oglasa -->
 <div class="col-8"><br>
-            <div class="card">        
+            <div class="card">      
+                <p class="">ID oglasa: <?php echo $r['oglas_id']; ?></p>  
                 <div class="card-body">
                 <h4 class="card-title">
                         <a href="add.view.php?oglas_id=<?php echo $r['oglas_id'] ?>">
@@ -15,7 +16,9 @@
                                      echo '<img src="whiteStar.png" alt="" width="30px" height="30px" class="float-right">';
                                  }elseif($r['tip_oglasa']=='Istaknuti oglas'){
                                      echo '<img src="star.png" alt="" width="30px" height="30px" class="float-right">';
-                                 };               
+                                 }elseif($r['tip_oglasa']=='Premium oglas'){
+                                    echo '<img src="crown.png" alt="" width="40px" height="40px" class="float-right">';
+                                };               
                             ?>
                         </a>
                     </h4>                    
@@ -50,7 +53,7 @@
                         }
                             ?>
                
-                    <p class="card-text"><?php echo $r['tekst']; ?></p>
+                    <p class="card-text"><b><?php echo $r['tekst']; ?></b></p>
                     <p class="card-text">Email: <?php echo $r['email']; ?></p>
                     <?php
                         if(strlen($r['telefon'])>1){

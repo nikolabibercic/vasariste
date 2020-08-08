@@ -24,7 +24,11 @@ $conn = db();
 
     $sql = "insert into oglasi values(null,'$naslov','$tekst',$cena,$kategorija,1,$korisnik,current_timestamp(),$valuta)";
     $query = mysqli_query($conn,$sql);
- 
+    
+    /*
+    U funkciju mysqli_insert_id morao sam da postavio kao prvi parametar
+    varijablu $conn, jer funkcija iz nepoznatog razloga nece da primi kao parametar funkciju db()
+    */
     $lastId = mysqli_insert_id($conn);
 
     if($_FILES["fileToUpload1"]['size'] > 0){

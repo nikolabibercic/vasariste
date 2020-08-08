@@ -62,6 +62,18 @@ function countryList(){
     return $result;
 }
 
+function adTypes(){
+    
+    $sql = "
+        select t.*
+        from tipovi_oglasa as t
+        ";
+    $query = mysqli_query(db(),$sql);
+    $result = mysqli_fetch_all($query,MYSQLI_ASSOC);
+
+    return $result;
+}
+
 function addsList($search,$kategorija,$cenaOd,$cenaDo,$datumOd,$datumDo){
     $sql = "
         select o.*, ko.opis as kategorija, t.opis as tip_oglasa,k.*,v.opis as valuta,k.grad,d.naziv as drzava,k.telefon

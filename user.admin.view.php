@@ -13,6 +13,23 @@
     </div>
 
     <div class="row">
+        <div class="col-6 offset-3">
+            <h4>Froma za promenu tipa oglasa:</h4><br>
+            <form action="change.add.type.php" method="get">
+                <input type="text" name="oglasId" placeholder="Unesi ID oglasa" class="form-control" required><br>
+
+                Izaberi tip oglasa:<br>
+                <select name="tipOglasa" id="">
+                    <?php $result = adTypes(); foreach($result as $x):  ?>
+                        <option value=<?php echo $x['tip_oglasa_id']; ?> class="form-control"><?php echo $x['opis']; ?></option>
+                    <?php endforeach; ?>
+                </select><br><br>
+                <button type="submit" class="btn btn-primary">Promeni tip oglasa</button><br><br>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
         <?php 
 
             $korisnikId = $_SESSION['korisnik_id'];

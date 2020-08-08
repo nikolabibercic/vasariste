@@ -9,16 +9,16 @@
         <div class="col-6 offset-3">
             <form action="register.php" method="post"><br>
                 Forma za registraciju:<br><br>
-                <input type="text" name="name" placeholder="Ime" class="form-control"><br>
-                <input type="email" name="email" placeholder="Email" class="form-control"><br>
-                <input type="password" name="password" placeholder="Sifra" class="form-control"><br>
+                <input type="text" name="name" placeholder="Ime" class="form-control" required><br>
+                <input type="email" name="email" placeholder="Email" class="form-control" required><br>
+                <input type="password" name="password" placeholder="Sifra" class="form-control" required><br>
                 Država:<br>
                 <select name="drzava" id="">
                     <?php $result = countryList(); foreach($result as $x):  ?>
                         <option value=<?php echo $x['drzava_id']; ?> class="form-control"><?php echo $x['naziv']; ?></option>
                     <?php endforeach; ?>
                 </select><br><br>
-                <input type="text" name="mesto" placeholder="Mesto" class="form-control"><br>
+                <input type="text" name="mesto" placeholder="Mesto" class="form-control" required><br>
                 <button type="submit" class="btn btn-primary">Registruj se</button><br><br>
             </form>
         </div>
