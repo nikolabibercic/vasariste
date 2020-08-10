@@ -6,7 +6,7 @@ create table drzave(
 );
 
 insert into drzave values(null,'Srbija');
-insert into drzave values(null,'Bosna i Hercegovina');
+insert into drzave values(null,'BiH');
 insert into drzave values(null,'Hrvatska');
 insert into drzave values(null,'Crna Gora');
 

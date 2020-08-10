@@ -10,17 +10,19 @@ if(!isset($_SESSION['korisnik_id'])){
 //Kupim oglas_id sa linka obrisi oglas iz kartice oglasa
 $oglasId = $_GET['oglas_id'];
 
-//Brisem oglas iz tabele oglasi
+//Brisem oglas zapise iz tabele slike_oglasa jer oglas moze imati slike
 $sql1 = "
-    delete from oglasi
+
+    delete from slike_oglasa
     where oglas_id = $oglasId;
+
 ";
 
 $query = mysqli_query(db(),$sql1);
 
-//Brisem oglas zapise iz tabele slike_oglasa jer oglas moze imati slike
+//Brisem oglas iz tabele oglasi
 $sql2 = "
-    delete from slike_oglasa
+    delete from oglasi
     where oglas_id = $oglasId;
 ";
 
