@@ -12,10 +12,11 @@
     <div class="row">
         <div class="col-3"></div>
         <div class="col-6">
-            <br><h2>Nazad na <a href="index.php">pretragu</a></h2>
+            <br><h2>Nazad na <a href="search.view.php">pretragu</a></h2>
         </div>
         <div class="col-3"></div>
     </div>
+    
     <div class="row">
         <?php 
             $search = $_GET['search'];
@@ -26,17 +27,19 @@
             $datumDo = $_GET['datumDo'];
 
             $result = addsList($search,$kategorija,$cenaOd,$cenaDo,$datumOd,$datumDo);
+            
+            
+            if(!$result){
+                header('Location: search.view.php');
+            }else{
+                foreach($result  as $r){
+                    require "adds.card.generate.php";
+                };
+            };
 
-            foreach($result  as $r):
         ?>
-
-        <?php require "adds.card.generate.php"; ?>
-
-        <?php endforeach; ?>
-         
+  
     </div>
 </div>
 
-
-    
 <?php require_once "partials/footer.php"; ?>

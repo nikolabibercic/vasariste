@@ -8,7 +8,7 @@ $password = $_POST['password'];
 $country = $_POST['drzava'];
 $city = $_POST['mesto'];
 
-$sql = "insert into korisnici values(null,'$name','','$email','$password','','','$city','',$country,current_timestamp(),'') ";
+$sql = "insert into korisnici values(null,'$name','','$email','$password','','','$city','',$country,current_timestamp()) ";
 $query = mysqli_query(db(),$sql);
 
 if($query){

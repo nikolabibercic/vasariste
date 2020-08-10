@@ -76,7 +76,7 @@ function adTypes(){
 
 function addsList($search,$kategorija,$cenaOd,$cenaDo,$datumOd,$datumDo){
     $sql = "
-        select o.*, ko.opis as kategorija, t.opis as tip_oglasa,k.*,v.opis as valuta,k.grad,d.naziv as drzava,k.telefon
+        select o.*, ko.opis as kategorija, t.opis as tip_oglasa,k.*,v.opis as valuta,k.grad,d.naziv as drzava,o.telefon
         from oglasi as o
         inner join korisnici as k on k.korisnik_id = o.korisnik_id
         inner join kategorije_oglasa as ko on ko.kategorija_id = o.kategorija_id
@@ -150,6 +150,25 @@ function categoryAddsView($kategorijaId){
         where o.kategorija_id = $kategorijaId
     
         order by o.tip_oglasa_id desc, o.datum_objave desc
+    ";
+
+    $query = mysqli_query(db(),$sql);
+    $result = mysqli_fetch_all($query,MYSQLI_ASSOC);
+
+    return $result;
+}
+
+function top50AddsView(){
+    $sql = "
+        select o.*, ko.opis as kategorija, k.grad, t.opis as tip_oglasa,k.*,v.opis as valuta,d.naziv as drzava
+        from oglasi as o
+        inner join korisnici as k on k.korisnik_id = o.korisnik_id
+        inner join kategorije_oglasa as ko on ko.kategorija_id = o.kategorija_id
+        inner join tipovi_oglasa as t on t.tip_oglasa_id = o.tip_oglasa_id
+        inner join valute as v on v.valuta_id = o.valuta_id
+        inner join drzave as d on d.drzava_id = k.drzava_id
+        order by o.tip_oglasa_id desc, o.datum_objave desc
+        limit 5;
     ";
 
     $query = mysqli_query(db(),$sql);

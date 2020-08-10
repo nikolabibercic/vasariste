@@ -19,14 +19,12 @@ $files3 = $_FILES["fileToUpload3"];
 $korisnik = $_SESSION['korisnik_id'];
 
 $conn = db();
-    $sqlUpdatePhone = "update korisnici set telefon = '$telefon' where korisnik_id = $korisnikId ";
-    $queryUpdate = mysqli_query($conn,$sqlUpdatePhone);
 
-    $sql = "insert into oglasi values(null,'$naslov','$tekst',$cena,$kategorija,1,$korisnik,current_timestamp(),$valuta)";
+    $sql = "insert into oglasi values(null,'$naslov','$tekst',$cena,$kategorija,1,$korisnik,current_timestamp(),$valuta,'$telefon')";
     $query = mysqli_query($conn,$sql);
     
     /*
-    U funkciju mysqli_insert_id morao sam da postavio kao prvi parametar
+    U funkciju mysqli_insert_id morao sam da postavim kao prvi parametar
     varijablu $conn, jer funkcija iz nepoznatog razloga nece da primi kao parametar funkciju db()
     */
     $lastId = mysqli_insert_id($conn);
@@ -51,9 +49,9 @@ $conn = db();
 
 
     if($query){
-        header('Location: index.php');
+        header('Location: new.add.success.view.php');
     }else{
-        header('Location: new.add.view.php');
+        header('Location: new.add.unsuccess.view.php');
     }
 
 

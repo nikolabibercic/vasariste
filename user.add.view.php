@@ -9,7 +9,7 @@
     <div class="row">
 
             <div class="col-12 text-center">
-                <br><h2>Idi na <a href="index.php">pretragu oglasa</a></h2>
+                <br><h2>Idi na <a href="search.view.php">pretragu oglasa</a></h2>
             </div>
 
     </div>

@@ -5,18 +5,30 @@
 <?php require_once "partials/navbar.php"; ?>
 
 <div class="container">
+
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <br><h2>Nazad na <a href="search.view.php">pretragu</a></h2>
+        </div>
+        <div class="col-2"></div>
+    </div>
+
     <div class="row">
         <?php 
             $oglasId = $_GET['oglas_id'];
 
             $result = addView($oglasId);
 
-            foreach($result as $r):
+               // Prikaz kartice pojedinacnog oglasa koja ima vise detalja i prikazuje full tekst oglasa
+                if(!$result){
+                    header('Location: search.view.php');
+                }else{
+                    foreach($result  as $r){
+                        require "add.card.generate.full.text.php";
+                    };
+                };
         ?>
-        <!-- Prikaz kartice pojedinacnog oglasa koja ima vise detalja i prikazuje full tekst oglasa -->
-        <?php require "add.card.generate.full.text.php"; ?>
-
-        <?php endforeach; ?>
          
     </div>
 </div>
