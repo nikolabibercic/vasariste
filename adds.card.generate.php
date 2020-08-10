@@ -49,7 +49,7 @@
                     <p class="card-text">Mesto: <?php echo $r['drzava'].', '.$r['grad']; ?></p>
                     <p class="card-text">Datum objave:<br> <?php echo $r['datum_objave']; ?></p>
                     <a href="#" class="btn btn-secondary btn-sm float-left"><?php echo $r['cena'].' '.$r['valuta']; ?></a>
-                    <a href="#" class="btn btn-primary btn-sm float-right"><?php echo $r['kategorija']; ?></a>
+                    <a href="category.adds.view.php?kategorija_id=<?php echo $r['kategorija_id']; ?>" class="btn btn-primary btn-sm float-right"><?php echo $r['kategorija']; ?></a>
                     <?php 
                     /* Ako je oglas od korisnika onda se pojavljuje dugme brisi ako nije onda se ne pojavljuje */
                         if(isset($_SESSION['korisnik_id']) and $r['korisnik_id'] == $_SESSION['korisnik_id'] ):

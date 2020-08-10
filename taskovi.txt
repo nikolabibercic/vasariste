@@ -1,10 +1,14 @@
-Napraviti link i stranicu ka kategorijama kada se klikne kategorija u oglasu
-
 Napraviti da korinik moze da zatrazi promenu tipa oglasa
 
 Napraviti stranice sa porukama da je oglas uspesno postavljen i obrisan
 
 Napraviti da se na index stranici pojavljuje poslednjih 100 oglasa
+
+Izmeniti da se telefon upisuje u tabelu oglas i da ne bude obavezan
+
+
+
+Napraviti link i stranicu ka kategorijama kada se klikne kategorija u oglasu - napravljeno
 
 Na admin straicu napraviti update tipa oglasa (videti sta jos treba) - napravljen update tipa oglasa i delete oglasa na admin stranici
 

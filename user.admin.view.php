@@ -16,6 +16,7 @@
         <div class="col-6 offset-3">
             <h4>Froma za promenu tipa oglasa:</h4><br>
             <form action="change.add.type.php" method="get">
+                Unesi ID oglasa:
                 <input type="text" name="oglasId" placeholder="Unesi ID oglasa" class="form-control" required><br>
 
                 Izaberi tip oglasa:<br>
@@ -27,12 +28,13 @@
                 <button type="submit" class="btn btn-primary">Promeni tip oglasa</button><br><br>
             </form>
         </div>
-    </div>
+    </div><br><br>
 
     <div class="row">
         <div class="col-6 offset-3">
             <h4>Froma za brisanje oglasa:</h4><br>
             <form action="admin.delete.add.php" method="get">
+                Unesi ID oglasa:
                 <input type="text" name="oglasId" placeholder="Unesi ID oglasa" class="form-control" required><br>
                 <button type="submit" class="btn btn-primary">Obriši oglas</button><br><br>
             </form>
