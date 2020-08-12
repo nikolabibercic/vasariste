@@ -28,7 +28,6 @@
 
             $result = addsList($search,$kategorija,$cenaOd,$cenaDo,$datumOd,$datumDo);
             
-            
             if(!$result){
                 header('Location: search.view.php');
             }else{

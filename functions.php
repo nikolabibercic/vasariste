@@ -13,6 +13,8 @@ function dd($val){
 function db(){
     $conn = mysqli_connect(HOST,USER,PASSWORD,DATABASE) or die('Error');
 
+    mysqli_set_charset($conn, "utf8");
+
     return $conn;
 }
 
@@ -27,11 +29,12 @@ function login($result){
 }
 
 function categoryList(){
-    
+
     $sql = "
         select ko.*
         from kategorije_oglasa as ko
         ";
+
     $query = mysqli_query(db(),$sql);
     $result = mysqli_fetch_all($query,MYSQLI_ASSOC);
 

@@ -33,7 +33,7 @@
                         <input type="date" value=<?php echo date('Y-m-d'); ?> class="form-control" name="datumDo">
                     </div>
                 </div><br>
-                <button type="submit" class="btn btn-primary">Pretrazi</button><br><br>
+                <button type="submit" class="btn btn-primary">Pretraži</button><br><br>
             </form>
         </div>
     </div>

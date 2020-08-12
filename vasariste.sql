@@ -1,9 +1,12 @@
-CREATE DATABASE vasariste;
+CREATE DATABASE vasariste 
+CHARACTER SET utf8 
+COLLATE utf8_unicode_ci;
+
 
 create table drzave(
 	drzava_id int AUTO_INCREMENT PRIMARY KEY,
-	naziv varchar(50) not null character set utf8
-);
+	naziv varchar(50) character set utf8 not null
+)engine=myisam;
 
 insert into drzave values(null,'Srbija');
 insert into drzave values(null,'BiH');
@@ -12,8 +15,8 @@ insert into drzave values(null,'Crna Gora');
 
 create table korisnici(
 	korisnik_id int AUTO_INCREMENT PRIMARY KEY,
-	ime varchar(50) not null character set utf8,
-    prezime varchar(50) not null character set utf8,
+	ime varchar(50) character set utf8 not null,
+    prezime varchar(50) character set utf8 not null,
     email varchar(50) not null unique,
 	password varchar(50) not null,
 	ulica varchar(100) character set utf8,
@@ -23,35 +26,35 @@ create table korisnici(
     drzava_id int not null,
 	datum_kreiranja datetime not null,
 	FOREIGN KEY (drzava_id) REFERENCES drzave(drzava_id)
-);
+)engine=myisam;
 
 CREATE TABLE tipovi_oglasa(
 	tip_oglasa_id int AUTO_INCREMENT PRIMARY KEY,
-    opis varchar(50) not null character set utf8
-);
+    opis varchar(50) character set utf8 not null
+)engine=myisam;
 
 CREATE TABLE kategorije_oglasa(
 	kategorija_id int AUTO_INCREMENT PRIMARY KEY,
-    opis varchar(50) not null character set utf8
-);
+    opis varchar(50) character set utf8 not null
+)engine=myisam;
 
 CREATE TABLE podkategorije_oglasa(
 	podkategorija_id int AUTO_INCREMENT PRIMARY KEY,
-    opis varchar(50) not null character set utf8,
+    opis varchar(50) character set utf8 not null,
 	kategorija_id int not null,
 	FOREIGN KEY (kategorija_id) REFERENCES kategorije_oglasa(kategorija_id)
-);
+)engine=myisam;
 
 CREATE TABLE valute(
 	valuta_id int AUTO_INCREMENT PRIMARY KEY,
-	opis varchar(50) not null character set utf8
-);
+	opis varchar(50) character set utf8 not null
+)engine=myisam;
 
 
 CREATE TABLE oglasi(
 	oglas_id int AUTO_INCREMENT PRIMARY KEY,
-	naslov varchar(30) not null character set utf8,
-    tekst varchar(200) not null character set utf8,
+	naslov varchar(30) character set utf8 not null,
+    tekst varchar(200) character set utf8 not null,
     cena decimal(15,2) not null,
 	kategorija_id int not null,
     tip_oglasa_id int not null,
@@ -63,19 +66,19 @@ CREATE TABLE oglasi(
     FOREIGN KEY (korisnik_id) REFERENCES korisnici(korisnik_id),
     FOREIGN KEY (tip_oglasa_id) REFERENCES tipovi_oglasa(tip_oglasa_id),
 	FOREIGN KEY (valuta_id) REFERENCES valute(valuta_id)
-);
+)engine=myisam;
 
 CREATE TABLE slike_oglasa(
 	slika_oglasa_id int AUTO_INCREMENT PRIMARY KEY,
 	oglas_id int not null,
 	slika_path varchar(100) character set utf8,
 	FOREIGN KEY (oglas_id) REFERENCES oglasi(oglas_id)
-);
+)engine=myisam;
 
 CREATE TABLE prava(
 	pravo_id int AUTO_INCREMENT PRIMARY KEY,
-	opis varchar(50) not null character set utf8
-);
+	opis varchar(50) character set utf8 not null
+)engine=myisam;
 
 CREATE TABLE korisnici_prava(
 	korisnik_prava_id int AUTO_INCREMENT PRIMARY KEY,
@@ -83,7 +86,7 @@ CREATE TABLE korisnici_prava(
 	pravo_id int not null,
 	FOREIGN KEY (korisnik_id) REFERENCES korisnici(korisnik_id),
 	FOREIGN KEY (pravo_id) REFERENCES prava(pravo_id)
-);
+)engine=myisam;
 
 insert into valute values(null,'EUR');
 insert into valute values(null,'RSD');
