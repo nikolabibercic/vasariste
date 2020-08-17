@@ -14,7 +14,16 @@
 
     <div class="row">
         <div class="col-6 offset-3">
-            <h4>Froma za promenu tipa oglasa:</h4><br>
+            <h4>Deaktivacija oglasa starijih od 30 dana:</h4><br>
+            <form action="admin.deactivate.add.php" method="get">
+                <button type="submit" class="btn btn-primary">Deaktiviraj oglase starije od 30 dana</button><br><br>
+            </form>
+        </div>
+    </div><br><br>
+
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h4>Forma za promenu tipa oglasa:</h4><br>
             <form action="change.add.type.php" method="get">
                 Unesi ID oglasa:
                 <input type="text" name="oglasId" placeholder="Unesi ID oglasa" class="form-control" required><br>
@@ -32,14 +41,14 @@
 
     <div class="row">
         <div class="col-6 offset-3">
-            <h4>Froma za brisanje oglasa:</h4><br>
+            <h4>Forma za brisanje oglasa:</h4><br>
             <form action="admin.delete.add.php" method="get">
                 Unesi ID oglasa:
                 <input type="text" name="oglasId" placeholder="Unesi ID oglasa" class="form-control" required><br>
                 <button type="submit" class="btn btn-primary">Obriši oglas</button><br><br>
             </form>
         </div>
-    </div>
+    </div><br><br>
 
     <div class="row">
         <?php 

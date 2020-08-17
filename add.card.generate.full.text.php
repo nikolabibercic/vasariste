@@ -4,7 +4,7 @@
 <!-- Prikaz kartice pojedinacnog oglasa koja ima vise detalja i prikazuje full tekst oglasa -->
 <div class="col-8"><br>
             <div class="card">      
-                <p class="">ID oglasa: <?php echo $r['oglas_id']; ?></p>  
+                <p class="">ID oglasa: <?php echo $r['oglas_id'].", ".$r['status']; ?></p>
                 <div class="card-body">
                 <h4 class="card-title">
                         <a href="add.view.php?oglas_id=<?php echo $r['oglas_id'] ?>">
@@ -13,11 +13,11 @@
                         <a href="">
                             <?php
                                  if($r['tip_oglasa']=='Standardni oglas'){
-                                     echo '<img src="whiteStar.png" alt="" width="30px" height="30px" class="float-right">';
+                                     echo '<a href="info.add.type.php"><img src="whiteStar.png" alt="" width="30px" height="30px" class="float-right"></a>';
                                  }elseif($r['tip_oglasa']=='Istaknuti oglas'){
-                                     echo '<img src="star.png" alt="" width="30px" height="30px" class="float-right">';
+                                     echo '<a href="info.add.type.php"><img src="star.png" alt="" width="30px" height="30px" class="float-right"></a>';
                                  }elseif($r['tip_oglasa']=='Premium oglas'){
-                                    echo '<img src="crown.png" alt="" width="40px" height="40px" class="float-right">';
+                                    echo '<a href="info.add.type.php"><img src="crown.png" alt="" width="40px" height="40px" class="float-right"></a>';
                                 };               
                             ?>
                         </a>

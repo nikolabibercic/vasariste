@@ -12,6 +12,13 @@
                 <button type="submit" class="btn btn-primary">Uloguj se</button><br><br>
             </form>
             <p>Ako nemate nalog registrujte se <a href="register.view.php">ovde</a></p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
         </div>
     </div>
 </div>

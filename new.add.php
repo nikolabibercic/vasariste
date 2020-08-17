@@ -20,7 +20,7 @@ $korisnik = $_SESSION['korisnik_id'];
 
 $conn = db();
 
-    $sql = "insert into oglasi values(null,'$naslov','$tekst',$cena,$kategorija,1,$korisnik,current_timestamp(),$valuta,'$telefon')";
+    $sql = "insert into oglasi values(null,'$naslov','$tekst',$cena,$kategorija,1,$korisnik,current_timestamp(),$valuta,'$telefon',1,0,0)";
     $query = mysqli_query($conn,$sql);
     
     /*

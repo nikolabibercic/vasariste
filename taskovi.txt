@@ -1,4 +1,10 @@
-Napraviti da korinik moze da zatrazi promenu tipa oglasa
+Napraviti da korinik moze da zatrazi promenu tipa oglasa - skoro zavrseno
+
+Izmeniti na kartici oglasa dugmi obrisi sa deaktiviraj
+
+Napraviti na admin stranici deaktivaciju jednog oglasa po oglas ID
+
+Napravi mogucnost Like i dislike, vec postoje kolone u bazi
 
 
 

@@ -2,6 +2,10 @@ CREATE DATABASE vasariste
 CHARACTER SET utf8 
 COLLATE utf8_unicode_ci;
 
+CREATE TABLE statusi_oglasa(
+	status_oglasa_id int AUTO_INCREMENT PRIMARY KEY,
+	opis varchar(50) character set utf8 not null
+)engine=myisam;
 
 create table drzave(
 	drzava_id int AUTO_INCREMENT PRIMARY KEY,
@@ -62,6 +66,10 @@ CREATE TABLE oglasi(
 	datum_objave datetime not null,
 	valuta_id int not null,
 	telefon varchar(50),
+	status_oglasa_id int not null,
+	like_count int not null,
+	dislike_count int not null,
+	FOREIGN KEY (status_oglasa_id) REFERENCES statusi_oglasa(status_oglasa_id),
 	FOREIGN KEY (kategorija_id) REFERENCES kategorije_oglasa(kategorija_id),
     FOREIGN KEY (korisnik_id) REFERENCES korisnici(korisnik_id),
     FOREIGN KEY (tip_oglasa_id) REFERENCES tipovi_oglasa(tip_oglasa_id),
@@ -87,6 +95,11 @@ CREATE TABLE korisnici_prava(
 	FOREIGN KEY (korisnik_id) REFERENCES korisnici(korisnik_id),
 	FOREIGN KEY (pravo_id) REFERENCES prava(pravo_id)
 )engine=myisam;
+
+
+
+insert into statusi_oglasa values(null,'Aktivan');
+insert into statusi_oglasa values(null,'Neaktivan');
 
 insert into valute values(null,'EUR');
 insert into valute values(null,'RSD');
