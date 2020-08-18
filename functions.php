@@ -115,7 +115,7 @@ function userAddsList($korisnikId){
         inner join statusi_oglasa as s on s.status_oglasa_id = o.status_oglasa_id
         where k.korisnik_id = $korisnikId
     
-        order by o.tip_oglasa_id desc, o.datum_objave desc
+        order by o.tip_oglasa_id desc, o.status_oglasa_id, o.datum_objave desc
     ";
 
     $query = mysqli_query(db(),$sql);

@@ -4,7 +4,8 @@ Izmeniti na kartici oglasa dugmi obrisi sa deaktiviraj
 
 Napraviti na admin stranici deaktivaciju jednog oglasa po oglas ID
 
-Napravi mogucnost Like i dislike, vec postoje kolone u bazi
+
+Napravi mogucnost Like i dislike, vec postoje kolone u bazi - Ovo ide drugoj verziji aplikacije
 
 
 

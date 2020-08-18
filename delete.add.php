@@ -1,5 +1,8 @@
 <?php
 
+//OVU STRANICU VISE NE KORISTIM JER SAM PROMENIO DA KORISNIK NE MOZE DA OBRISE OGLAS VEC DA GA DEAKTIVIRA
+//SADA SE KORISTI STRANICA DEACTIVATE.ADD.PHP
+
 require_once "functions.php";
 
 //Ako nije ulogovan ne moze na stranicu delete.add.php, vraca ga na index.php

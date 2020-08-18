@@ -4,7 +4,19 @@
 <div class="col-6"><br>
             <div class="card">        
                 <div class="card-body">
-                <p class="">ID oglasa: <?php echo $r['oglas_id'].", ".$r['status']; ?></p>
+                <!-- Ako je oglas aktivan pozadina zelena -->  
+                <?php 
+                        if( $r['status_oglasa_id'] == '1' ):
+                ?>
+                <p class="text-success">ID oglasa: <?php echo $r['oglas_id'].", ".$r['status']; ?></p>
+                <?php endif; ?>  
+                <!-- Ako je oglas neaktivan pozadina crvena -->                 
+                <?php 
+                        if( $r['status_oglasa_id'] == '2' ):
+                ?>
+                <p class="text-danger">ID oglasa: <?php echo $r['oglas_id'].", ".$r['status']; ?></p>
+                <?php endif; ?>  
+
                 <h4 class="card-title">
                         <a href="add.view.php?oglas_id=<?php echo $r['oglas_id'] ?>">
                             <?php echo $r['naslov']; ?>
@@ -50,12 +62,19 @@
                     <p class="card-text">Datum objave:<br> <?php echo $r['datum_objave']; ?></p>
                     <a href="#" class="btn btn-secondary btn-sm float-left"><?php echo $r['cena'].' '.$r['valuta']; ?></a>
                     <a href="category.adds.view.php?kategorija_id=<?php echo $r['kategorija_id']; ?>" class="btn btn-primary btn-sm float-right"><?php echo $r['kategorija']; ?></a>
+                    <!-- Ako je oglas aktivan pojavljuje se dugme deaktiviraj --> 
                     <?php 
-                    /* Ako je oglas od korisnika onda se pojavljuje dugme brisi ako nije onda se ne pojavljuje */
-                        if(isset($_SESSION['korisnik_id']) and $r['korisnik_id'] == $_SESSION['korisnik_id'] ):
+                        if(isset($_SESSION['korisnik_id']) and $r['korisnik_id'] == $_SESSION['korisnik_id'] and $r['status_oglasa_id'] == '1' ):
                     ?>
-                    <a href="delete.add.php?oglas_id=<?php echo $r['oglas_id'] ?>" class="btn btn-danger btn-sm float-right">Obriši oglas</a>
-                    <?php endif; ?>                   
+                    <a href="deactivate.add.php?oglas_id=<?php echo $r['oglas_id'] ?>" class="btn btn-danger btn-sm float-right">Deaktiviraj oglas</a>
+                    <?php endif; ?>
+                    
+                    <!-- Ako je oglas neaktivan pojavljuje se dugme aktiviraj --> 
+                    <?php 
+                        if(isset($_SESSION['korisnik_id']) and $r['korisnik_id'] == $_SESSION['korisnik_id'] and $r['status_oglasa_id'] == '2' ):
+                    ?>
+                    <a href="activate.add.php?oglas_id=<?php echo $r['oglas_id'] ?>" class="btn btn-success btn-sm float-right">Aktiviraj oglas</a>
+                    <?php endif; ?>                  
                 </div>
             </div>
 </div>

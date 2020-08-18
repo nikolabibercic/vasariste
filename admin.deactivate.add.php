@@ -22,10 +22,10 @@ require_once "functions.php";
         $oglasId = $_GET['oglasId'];
 
 
-        //Brisem oglas zapise iz tabele slike_oglasa jer oglas moze imati slike
+        //Update statusa oglasa
         $sql1 = "
             update oglasi
-            set status_oglasa_id = 2
+            set status_oglasa_id = 2, tip_oglasa_id = 1
             where datum_objave <= DATE_ADD(CURRENT_DATE(), INTERVAL -30 DAY);
         ";
 
