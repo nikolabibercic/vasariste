@@ -26,7 +26,7 @@ require_once "functions.php";
         $sql1 = "
             update oglasi
             set status_oglasa_id = 2, tip_oglasa_id = 1
-            where oglas_id = $oglasId;
+            where datum_objave <= DATE_ADD(CURRENT_DATE(), INTERVAL -30 DAY);
         ";
 
         $query1 = mysqli_query(db(),$sql1);

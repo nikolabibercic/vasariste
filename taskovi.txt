@@ -1,13 +1,14 @@
-Napraviti da korinik moze da zatrazi promenu tipa oglasa - skoro zavrseno
-
-Izmeniti na kartici oglasa dugmi obrisi sa deaktiviraj
-
 Napraviti na admin stranici deaktivaciju jednog oglasa po oglas ID
 
 
 Napravi mogucnost Like i dislike, vec postoje kolone u bazi - Ovo ide drugoj verziji aplikacije
 
 
+
+
+Napraviti da korinik moze da zatrazi promenu tipa oglasa - zavrseno
+
+Izmeniti na kartici oglasa dugmi obrisi sa deaktiviraj
 
 Napraviti stranice sa porukama da je oglas uspesno postavljen i obrisan - napravljeno
 

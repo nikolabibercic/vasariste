@@ -18,7 +18,7 @@ require_once "functions.php";
     $result = mysqli_fetch_assoc($query);
 
     if($result){
-        //Kupim oglas_id sa linka obrisi oglas iz kartice oglasa
+      
         $oglasId = $_GET['oglasId'];
 
 

@@ -15,8 +15,19 @@
     <div class="row">
         <div class="col-6 offset-3">
             <h4>Deaktivacija oglasa starijih od 30 dana:</h4><br>
-            <form action="admin.deactivate.add.php" method="get">
+            <form action="admin.deactivate.adds.php" method="get">
                 <button type="submit" class="btn btn-primary">Deaktiviraj oglase starije od 30 dana</button><br><br>
+            </form>
+        </div>
+    </div><br><br>
+
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h4>Deaktivacija pojedinačnog oglasa:</h4><br>
+            <form action="admin.deactivate.add.php" method="get">
+                Unesi ID oglasa:
+                <input type="text" name="oglasId" placeholder="Unesi ID oglasa" class="form-control" required><br>
+                <button type="submit" class="btn btn-primary">Deaktiviraj oglas</button><br><br>
             </form>
         </div>
     </div><br><br>

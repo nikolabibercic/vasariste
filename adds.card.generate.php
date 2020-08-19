@@ -4,6 +4,7 @@
 <div class="col-6"><br>
             <div class="card">        
                 <div class="card-body">
+
                 <!-- Ako je oglas aktivan pozadina zelena -->  
                 <?php 
                         if( $r['status_oglasa_id'] == '1' ):
@@ -18,7 +19,7 @@
                 <?php endif; ?>  
 
                 <h4 class="card-title">
-                        <a href="add.view.php?oglas_id=<?php echo $r['oglas_id'] ?>">
+                        <a href="add.view.php?oglas_id=<?php echo $r['oglas_id'] ?>" style="color:black">
                             <?php echo $r['naslov']; ?>
                         </a>
                         <a href="">
@@ -32,7 +33,7 @@
                                 };               
                             ?>
                         </a>
-                    </h4>                   
+                </h4>                   
                     <div class="text-center">
             <!--        <ul class="list-group list-group-horizontal-xl">  -->
                             <?php 
@@ -51,7 +52,7 @@
                <!--      </ul><br> -->
                     </div><br>
 
-                    <p class="card-text"><b><?php echo substr($r['tekst'],0,100); ?></b><a href="add.view.php?oglas_id=<?php echo $r['oglas_id'] ?>"><?php if(strlen($r['tekst'])>99) echo "......"; ?></a></p>
+                    <p class="card-text"><?php echo substr($r['tekst'],0,100); ?><a href="add.view.php?oglas_id=<?php echo $r['oglas_id'] ?>"><?php if(strlen($r['tekst'])>99) echo "......"; ?></a></p>
                     <p class="card-text">Email: <?php echo $r['email']; ?></p>
                     <?php
                         if(strlen($r['telefon'])>1){

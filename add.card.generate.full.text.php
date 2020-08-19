@@ -19,7 +19,7 @@
                     <?php endif; ?>  
                 
                 <h4 class="card-title">
-                        <a href="add.view.php?oglas_id=<?php echo $r['oglas_id'] ?>">
+                        <a href="add.view.php?oglas_id=<?php echo $r['oglas_id'] ?>" style="color:black">
                             <?php echo $r['naslov']; ?>
                         </a>
                         <a href="">
@@ -65,7 +65,7 @@
                         }
                             ?>
                
-                    <p class="card-text"><b><?php echo $r['tekst']; ?></b></p>
+                    <p class="card-text"><?php echo $r['tekst']; ?></p>
                     <p class="card-text">Email: <?php echo $r['email']; ?></p>
                     <?php
                         if(strlen($r['telefon'])>1){

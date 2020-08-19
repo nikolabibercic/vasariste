@@ -26,16 +26,16 @@
             <img src="star.png" alt="" width="30px" height="30px"> Žuta zvezda predstavlja <b>istaknuti</b> oglas.
             Istaknuti oglasi se nalaze uvek ispred standardnih oglasa<br><br>
 
-            Cena istaknutog oglasa iznosi 100 dinara.<br><br><br>
+            <b>Cena istaknutog oglasa iznosi 100 dinara.</b><br><br><br>
 
             <img src="crown.png" alt="" width="40px" height="40px"> Plava kruna predstavlja <b>premium</b> oglas.
             Premium oglasi se nalaze uvek ispred istaknutih i standardnih oglasa<br><br>
 
-            Cena premium oglasa iznosi 200 dinara.<br><br><br>
+            <b>Cena premium oglasa iznosi 200 dinara.</b><br><br><br>
 
             <h1>Način plaćanja:</h1><br>
 
-            Uplatu istaknutog ili premium oglasa možete izvršiti na račun:<br> <b>265104031000349064</b><br><br>
+            Uplatu istaknutog ili premium oglasa možete izvršiti na račun:<br> <b>160-5100101234374-85</b><br><br>
 
             <h4>Elektronski:</h4>
 
@@ -46,6 +46,8 @@
             <b>Svrha uplate:</b> Istaknuti/Premium oglas<br><br>
 
             <h4>Uplatnicom:</h4>
+
+            <img src="UplatnicaPopunjena.png" alt="..." class="img-thumbnail">
         </div>
         <div class="col-3"></div>
     </div>
