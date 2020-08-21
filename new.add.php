@@ -11,6 +11,7 @@ $cena = $_POST['cena'];
 $kategorija = $_POST['kategorija'];
 $valuta = $_POST['valuta'];
 $telefon = $_POST['telefon'];
+$podkategorija = $_POST['podkategorija'];
 
 $files1 = $_FILES["fileToUpload1"];
 $files2 = $_FILES["fileToUpload2"];
@@ -20,7 +21,7 @@ $korisnik = $_SESSION['korisnik_id'];
 
 $conn = db();
 
-    $sql = "insert into oglasi values(null,'$naslov','$tekst',$cena,$kategorija,1,$korisnik,current_timestamp(),$valuta,'$telefon',1,0,0)";
+    $sql = "insert into oglasi values(null,'$naslov','$tekst',$cena,$kategorija,1,$korisnik,current_timestamp(),$valuta,'$telefon',1,0,0,'$podkategorija')";
     $query = mysqli_query($conn,$sql);
     
     /*
