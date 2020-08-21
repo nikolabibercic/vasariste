@@ -69,6 +69,7 @@ CREATE TABLE oglasi(
 	status_oglasa_id int not null,
 	like_count int not null,
 	dislike_count int not null,
+	podkategorija_opis varchar(200) character set utf8 not null,
 	FOREIGN KEY (status_oglasa_id) REFERENCES statusi_oglasa(status_oglasa_id),
 	FOREIGN KEY (kategorija_id) REFERENCES kategorije_oglasa(kategorija_id),
     FOREIGN KEY (korisnik_id) REFERENCES korisnici(korisnik_id),
@@ -112,11 +113,11 @@ insert into tipovi_oglasa values(null,'Premium oglas');
 
 insert into kategorije_oglasa values(null,'Nekretnine');
 insert into kategorije_oglasa values(null,'Posao');
-insert into kategorije_oglasa values(null,'Automobili i delovi');
+insert into kategorije_oglasa values(null,'Vozila i delovi');
 insert into kategorije_oglasa values(null,'Računari');
 insert into kategorije_oglasa values(null,'Odmor');
 insert into kategorije_oglasa values(null,'Lični kontakti');
-insert into kategorije_oglasa values(null,'Masaže');
+insert into kategorije_oglasa values(null,'Nega lica i tela');
 insert into kategorije_oglasa values(null,'Građevinarstvo');
 insert into kategorije_oglasa values(null,'Poljoprivreda');
 insert into kategorije_oglasa values(null,'Alati, mašine i oprema');
@@ -124,7 +125,7 @@ insert into kategorije_oglasa values(null,'Nameštaj');
 insert into kategorije_oglasa values(null,'Kućni aparati');
 insert into kategorije_oglasa values(null,'Telefoni');
 insert into kategorije_oglasa values(null,'Muzika i instrumenti');
-insert into kategorije_oglasa values(null,'Odeća i obuća');
+insert into kategorije_oglasa values(null,'Odeća, obuća i dodaci');
 insert into kategorije_oglasa values(null,'Sport');
 insert into kategorije_oglasa values(null,'Kućni ljubimci');
 insert into kategorije_oglasa values(null,'Zdravstvo');
