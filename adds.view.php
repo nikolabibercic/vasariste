@@ -21,21 +21,24 @@
         <?php 
             $search = $_GET['search'];
             $kategorija = $_GET['kategorija'];
+            $podkategorija = $_GET['podkategorija'];
             $cenaOd = $_GET['cenaOd'];
             $cenaDo = $_GET['cenaDo'];
             $datumOd = $_GET['datumOd'];
             $datumDo = $_GET['datumDo'];
 
-            $result = addsList($search,$kategorija,$cenaOd,$cenaDo,$datumOd,$datumDo);
-            
-            if(!$result){
+            $podkategorija = trim($podkategorija);
+
+            $result = addsList($search,$kategorija,$cenaOd,$cenaDo,$datumOd,$datumDo,$podkategorija);
+
+           if(!$result){
                 header('Location: search.view.php');
             }else{
                 foreach($result  as $r){
                     require "adds.card.generate.php";
                 };
-            };
-
+            }; 
+                
         ?>
   
     </div>

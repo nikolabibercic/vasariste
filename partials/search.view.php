@@ -6,7 +6,7 @@
 
             if(oglasi === '0'){
                 var niz = [''];
-            }   
+            }  
             if(oglasi === '1'){
                 var niz = ['Stambeni prostor','Poslovni prostor','Ostalo'];
             }   
@@ -69,8 +69,9 @@
             }  
 
             var noviNiz = '';
+
             for(i=0;i<niz.length;i++){
-                noviNiz += '<option value=" ' + niz[i] + ' ">' + niz[i] + '</option>'; 
+                noviNiz += '<option value=" ' + niz[i] + ' ">' + niz[i] + '</option>' ; 
             };
 
             string = '<select name="podkategorija"><option value="0">Sve</option>' + noviNiz + '</select>';
@@ -90,7 +91,16 @@
                 <select name="kategorija" id="kategorija" onclick="random()">
                     <option value="0">Sve</option>
                     <?php $result = categoryList(); foreach($result as $x):  ?>
-                        <option value=<?php echo $x['kategorija_id']; ?> class="form-control"><?php echo $x['opis']; ?></option>
+                        <option value=<?php echo $x['kategorija_id']; ?> class="form-control"><?php echo $x['opis']; ?>&nbsp
+                            <p>
+                                <?php
+                                    $result = categoryCount($x['kategorija_id']);
+                                    foreach($result as $r){
+                                        echo $r['countCategory'];
+                                    };
+                                ?>
+                            </p>
+                        </option>
                     <?php endforeach; ?>
                 </select><br><br>
          

@@ -77,9 +77,9 @@ function adTypes(){
     return $result;
 }
 
-function addsList($search,$kategorija,$cenaOd,$cenaDo,$datumOd,$datumDo){
+function addsList($search,$kategorija,$cenaOd,$cenaDo,$datumOd,$datumDo,$podkategorija){
     $sql = "
-        select o.*, ko.opis as kategorija, t.opis as tip_oglasa,k.*,v.opis as valuta,k.grad,d.naziv as drzava,o.telefon,s.opis as status
+        select o.*, ko.opis as kategorija, t.opis as tip_oglasa,k.*,v.opis as valuta,k.grad,d.naziv as drzava,o.telefon,s.opis as status,o.podkategorija_opis
         from oglasi as o
         inner join korisnici as k on k.korisnik_id = o.korisnik_id
         inner join kategorije_oglasa as ko on ko.kategorija_id = o.kategorija_id
@@ -90,6 +90,7 @@ function addsList($search,$kategorija,$cenaOd,$cenaDo,$datumOd,$datumDo){
         where s.opis = 'aktivan' 
         and ( o.naslov like '%$search%' or o.tekst like '%$search%' or ko.opis like '%$search%' or k.email like '%$search%' )
         and ( ko.kategorija_id = $kategorija or $kategorija = 0)
+        and (podkategorija_opis = '$podkategorija' or '$podkategorija' = '0')
         and ( o.cena >= $cenaOd or $cenaOd = '')
         and  ( o.cena <= $cenaDo or $cenaDo = '')
         and ( o.datum_objave BETWEEN '$datumOd' and DATE_ADD('$datumDo', INTERVAL 1 DAY) )
@@ -105,7 +106,7 @@ function addsList($search,$kategorija,$cenaOd,$cenaDo,$datumOd,$datumDo){
 
 function userAddsList($korisnikId){
     $sql = "
-        select o.*, ko.opis as kategorija, t.opis as tip_oglasa,k.*,v.opis as valuta,k.grad, d.naziv as drzava,s.opis as status
+        select o.*, ko.opis as kategorija, t.opis as tip_oglasa,k.*,v.opis as valuta,k.grad, d.naziv as drzava,s.opis as status,o.podkategorija_opis
         from oglasi as o
         inner join korisnici as k on k.korisnik_id = o.korisnik_id
         inner join kategorije_oglasa as ko on ko.kategorija_id = o.kategorija_id
@@ -126,7 +127,7 @@ function userAddsList($korisnikId){
 
 function addView($oglasId){
     $sql = "
-        select o.*, ko.opis as kategorija, k.grad, t.opis as tip_oglasa,k.*,v.opis as valuta,d.naziv as drzava,s.opis as status
+        select o.*, ko.opis as kategorija, k.grad, t.opis as tip_oglasa,k.*,v.opis as valuta,d.naziv as drzava,s.opis as status,o.podkategorija_opis
         from oglasi as o
         inner join korisnici as k on k.korisnik_id = o.korisnik_id
         inner join kategorije_oglasa as ko on ko.kategorija_id = o.kategorija_id
@@ -137,6 +138,20 @@ function addView($oglasId){
         where o.oglas_id = $oglasId
     
         order by o.tip_oglasa_id desc, o.datum_objave desc
+    ";
+
+    $query = mysqli_query(db(),$sql);
+    $result = mysqli_fetch_all($query,MYSQLI_ASSOC);
+
+    return $result;
+}
+
+function categoryCount($kategorijaId){
+    $sql = "
+    SELECT count(o.kategorija_id) as countCategory
+    FROM oglasi as o
+    inner join statusi_oglasa as s on s.status_oglasa_id = o.status_oglasa_id
+    where o.kategorija_id = $kategorijaId  and s.opis = 'aktivan'
     ";
 
     $query = mysqli_query(db(),$sql);
@@ -156,6 +171,27 @@ function categoryAddsView($kategorijaId){
         inner join drzave as d on d.drzava_id = k.drzava_id
         inner join statusi_oglasa as s on s.status_oglasa_id = o.status_oglasa_id
         where o.kategorija_id = $kategorijaId and s.opis = 'aktivan'
+    
+        order by o.tip_oglasa_id desc, o.datum_objave desc
+    ";
+
+    $query = mysqli_query(db(),$sql);
+    $result = mysqli_fetch_all($query,MYSQLI_ASSOC);
+
+    return $result;
+}
+
+function subcategoryAddsView($podkategorijaOpis){
+    $sql = "
+        select o.*, ko.opis as kategorija, k.grad, t.opis as tip_oglasa,k.*,v.opis as valuta,d.naziv as drzava,s.opis as status
+        from oglasi as o
+        inner join korisnici as k on k.korisnik_id = o.korisnik_id
+        inner join kategorije_oglasa as ko on ko.kategorija_id = o.kategorija_id
+        inner join tipovi_oglasa as t on t.tip_oglasa_id = o.tip_oglasa_id
+        inner join valute as v on v.valuta_id = o.valuta_id
+        inner join drzave as d on d.drzava_id = k.drzava_id
+        inner join statusi_oglasa as s on s.status_oglasa_id = o.status_oglasa_id
+        where o.podkategorija_opis = '$podkategorijaOpis' and s.opis = 'aktivan'
     
         order by o.tip_oglasa_id desc, o.datum_objave desc
     ";

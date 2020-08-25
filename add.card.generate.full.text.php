@@ -75,19 +75,20 @@
                     <p class="card-text">Mesto: <?php echo $r['drzava'].', '.$r['grad']; ?></p>
                     <p class="card-text">Datum objave:<br> <?php echo $r['datum_objave']; ?></p>
                     <a href="#" class="btn btn-secondary btn-sm float-left"><?php echo $r['cena'].' '.$r['valuta']; ?></a>
-                    <a href="category.adds.view.php?kategorija_id=<?php echo $r['kategorija_id']; ?>" class="btn btn-primary btn-sm float-right"><?php echo $r['kategorija']; ?></a>
+                    <a href="category.adds.view.php?kategorija_id=<?php echo $r['kategorija_id']; ?>" class="btn btn-primary btn-sm float-left"><?php echo $r['kategorija']; ?></a>
+                    <a href="subcategory.adds.view.php?podkategorija_opis=<?php echo $r['podkategorija_opis']; ?>" class="btn btn-primary btn-sm float-left"><?php echo $r['podkategorija_opis']; ?></a>
                     <!-- Ako je oglas aktivan pojavljuje se dugme deaktiviraj --> 
                     <?php 
                         if(isset($_SESSION['korisnik_id']) and $r['korisnik_id'] == $_SESSION['korisnik_id'] and $r['status_oglasa_id'] == '1' ):
                     ?>
-                    <a href="deactivate.add.php?oglas_id=<?php echo $r['oglas_id'] ?>" class="btn btn-danger btn-sm float-right">Deaktiviraj oglas</a>
+                        <a href="deactivate.add.php?oglas_id=<?php echo $r['oglas_id'] ?>" class="btn btn-danger btn-sm float-right">Deaktiviraj oglas</a>
                     <?php endif; ?>
                     
                     <!-- Ako je oglas neaktivan pojavljuje se dugme aktiviraj --> 
                     <?php 
                         if(isset($_SESSION['korisnik_id']) and $r['korisnik_id'] == $_SESSION['korisnik_id'] and $r['status_oglasa_id'] == '2' ):
                     ?>
-                    <a href="activate.add.php?oglas_id=<?php echo $r['oglas_id'] ?>" class="btn btn-success btn-sm float-right">Aktiviraj oglas</a>
+                        <a href="activate.add.php?oglas_id=<?php echo $r['oglas_id'] ?>" class="btn btn-success btn-sm float-right">Aktiviraj oglas</a>
                     <?php endif; ?>                      
                 </div>
             </div>
